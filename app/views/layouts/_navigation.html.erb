@@ -17,6 +17,9 @@
       <li>
       <%= link_to 'Admin', users_path %>
       </li>
+      <li>
+      <%= link_to "#{current_user.name}", current_user %>
+      </li>
     <% end %>
   <% else %>
     <li>

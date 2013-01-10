@@ -1,3 +1,24 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+
+<div class="items clearfix">
+  <%= link_to user_ideas_path(current_user) do %>
+    <h3>Ideas</h3>
+  <% end %>
+  <%= link_to "New Idea",new_user_idea_path(current_user), class:"btn btn-success " %>
+  <br />
+  <br />
+  <%- if @ideas %>
+    <%= render @ideas %>
+  <% end %>
+</div>
+
+<div class="items clearfix">
+  <%= link_to user_projects_path(current_user) do %>
+    <h3>Projects</h3>
+  <% end %>
+  <%= link_to "New Project",new_user_project_path(current_user), class:"btn btn-success " %>
+  <br />
+  <br />
+  <%- if @projects %>
+    <%= render @projects %>
+  <% end %>
+</div>

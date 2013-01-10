@@ -8,8 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @projects = @user.projects if @user.projects.any?
+    @ideas = @user.ideas if @user.ideas.any?
   end
-  
+
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
@@ -19,7 +21,7 @@ class UsersController < ApplicationController
       redirect_to users_path, :alert => "Unable to update user."
     end
   end
-    
+
   def destroy
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
     user = User.find(params[:id])

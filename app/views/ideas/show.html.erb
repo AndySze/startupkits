@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Title:</b>
+  <%= @idea.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @idea.description %>
+</p>
+
+<%= link_to 'Edit', edit_user_idea_path(current_user,@idea) %> |
+<%= link_to 'Destory', [current_user,@idea],method: :delete,confirm: "Are you sure?" %> |
+<%= link_to 'Back', user_ideas_path(current_user) %>
