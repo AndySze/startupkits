@@ -14,6 +14,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     @idea = Idea.find(params[:id])
+    @customer_segments = @idea.customer_segments.limit(3)#list only three most important segments
 
     respond_to do |format|
       format.html # show.html.erb

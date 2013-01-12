@@ -1,0 +1,14 @@
+<li>
+<p>
+  <%= customer_segment.title %>
+</p>
+
+<p>
+  <%= customer_segment.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_idea_customer_segment_path(current_user,@idea,customer_segment) %> |
+<%= link_to 'Destroy', user_idea_customer_segment_path(current_user,@idea,customer_segment),method: :delete,confirm:"are you sure?" %>
+</li>
+

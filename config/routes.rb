@@ -1,6 +1,9 @@
 Startupkit::Application.routes.draw do
 
 
+  resources :customer_segments
+
+
   resources :ideas
 
 
@@ -11,6 +14,8 @@ Startupkit::Application.routes.draw do
   devise_for :users
   resources :users do
     resources :projects
-    resources :ideas
+    resources :ideas do
+      resources :customer_segments
+    end
   end
 end

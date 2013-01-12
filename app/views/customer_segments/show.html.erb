@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @customer_segment.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @customer_segment.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_idea_customer_segment_path(current_user,@idea,@customer_segment) %> |
+<%= link_to 'Back', user_idea_customer_segments_path(current_user,@idea) %>

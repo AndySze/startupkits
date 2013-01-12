@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <b>Title:</b>
-  <%= @idea.title %>
-</p>
+<div class="items">
+  <h1> <%= @idea.title %> </h1>
+  <h4> <%= @idea.description %> </h4>
 
-<p>
-  <b>Description:</b>
-  <%= @idea.description %>
-</p>
+  <div class="pull-right">
+  <%= link_to 'Edit idea', edit_user_idea_path(current_user,@idea) %> |
+  <%= link_to 'Destory this idea', [current_user,@idea],method: :delete,confirm: "Are you sure?" %> |
+  <%= link_to 'Back to all ideas', user_ideas_path(current_user) %>
+</div>
 
-<%= link_to 'Edit', edit_user_idea_path(current_user,@idea) %> |
-<%= link_to 'Destory', [current_user,@idea],method: :delete,confirm: "Are you sure?" %> |
-<%= link_to 'Back', user_ideas_path(current_user) %>
+  <hr>
+  <%= link_to 'New Customer segment', new_user_idea_customer_segment_path(current_user,@idea) %>
+  <%- if @customer_segments %>
+    <ul>
+    <%= render @customer_segments %>
+  </ul>
+<% end %>
+</div>
