@@ -1,0 +1,13 @@
+<li>
+<h4>
+  <%= metric.title %>
+</h4>
+
+<p>
+<%= metric.description %>
+</p>
+
+<%= link_to 'Edit', edit_user_idea_metric_path(current_user,@idea,metric) %> |
+<%= link_to 'Destroy', user_idea_metric_path(current_user,@idea,metric),method: :delete,confirm:"are you sure?" %>
+
+</li>

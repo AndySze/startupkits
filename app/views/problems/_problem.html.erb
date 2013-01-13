@@ -1,0 +1,14 @@
+<li>
+<p>
+  <%= problem.title %>
+</p>
+
+<p>
+  <%= problem.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_idea_problem_path(current_user,@idea,problem) %> |
+<%= link_to 'Destroy', user_idea_problem_path(current_user,@idea,problem),method: :delete,confirm:"are you sure?" %>
+</li>
+

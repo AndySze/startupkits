@@ -1,0 +1,13 @@
+<li>
+<h4>
+  <%= advantage.title %>
+</h4>
+
+<p>
+  <%= advantage.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_idea_advantage_path(current_user,@idea,advantage) %> |
+<%= link_to 'Destroy', user_idea_advantage_path(current_user,@idea,advantage),method: :delete,confirm:"are you sure?" %>
+</li>

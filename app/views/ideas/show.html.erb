@@ -18,4 +18,54 @@
     <%= render @customer_segments %>
   </ul>
 <% end %>
+
+  <hr>
+  <%= link_to 'New problems', new_user_idea_problem_path(current_user,@idea) %>
+  <%- if @problems %>
+    <ul>
+    <%= render @problems %>
+  </ul>
+<% end %>
+
+  <hr>
+  <%= link_to 'New Solution', new_user_idea_solution_path(current_user,@idea) %>
+  <%- if @solutions %>
+    <ul>
+    <%= render @solutions %>
+  </ul>
+<% end %>
+
+  <hr>
+  <%= link_to 'New Metric', new_user_idea_metric_path(current_user,@idea) %>
+  <%- if @metrics %>
+    <ul>
+    <%= render @metrics %>
+  </ul>
+<% end %>
+
+  <hr>
+  <%= link_to 'New uvp', new_user_idea_uvp_path(current_user,@idea) %>
+  <%- if @uvps %>
+    <ul>
+    <%= render @uvps %>
+  </ul>
+<% end %>
+
+  <hr>
+  <%= link_to 'New Advantage', new_user_idea_advantage_path(current_user,@idea) %>
+  <%- if @advantages %>
+    <ul>
+    <%= render @advantages %>
+  </ul>
+<% end %>
+
+  <hr>
+  <%= link_to 'New Channel', new_user_idea_channel_path(current_user,@idea) %>
+  <%- if @channels %>
+    <ul>
+    <%= render @channels %>
+  </ul>
+<% end %>
+
+
 </div>

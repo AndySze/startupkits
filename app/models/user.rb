@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_many :projects, :dependent => :destroy
   has_many :ideas, :dependent => :destroy
   has_many :customer_segments,:through => :ideas, :dependent => :destroy
+  has_many :problems,:through => :ideas, :dependent => :destroy
 end

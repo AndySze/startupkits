@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112034934) do
+ActiveRecord::Schema.define(:version => 20130112084406) do
+
+  create_table "advantages", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "idea_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "channels", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "idea_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "customer_segments", :force => true do |t|
     t.string   "title"
@@ -25,6 +41,22 @@ ActiveRecord::Schema.define(:version => 20130112034934) do
     t.string   "title"
     t.string   "description"
     t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "metrics", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "idea_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "problems", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "idea_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -47,6 +79,14 @@ ActiveRecord::Schema.define(:version => 20130112034934) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "solutions", :force => true do |t|
+    t.string   "feature"
+    t.string   "description"
+    t.integer  "idea_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -73,5 +113,13 @@ ActiveRecord::Schema.define(:version => 20130112034934) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "uvps", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "idea_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

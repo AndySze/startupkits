@@ -78,14 +78,9 @@ class CustomerSegmentsController < ApplicationController
     @customer_segment.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_idea_customer_segments_url(current_user,@idea) }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
 
-  private
-
-  def get_idea
-    @idea = Idea.find(params[:idea_id])
-  end
 end

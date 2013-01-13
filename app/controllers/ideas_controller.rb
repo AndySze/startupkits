@@ -15,6 +15,12 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @customer_segments = @idea.customer_segments.limit(3)#list only three most important segments
+    @problems = @idea.problems
+    @solutions = @idea.solutions
+    @metrics = @idea.metrics
+    @uvps = @idea.uvps
+    @advantages = @idea.advantages
+    @channels = @idea.channels
 
     respond_to do |format|
       format.html # show.html.erb

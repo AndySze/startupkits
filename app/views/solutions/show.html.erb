@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Feature:</b>
+  <%= @solution.feature %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @solution.description %>
+</p>
+
+<p>
+  <b>Idea:</b>
+  <%= @solution.idea_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_idea_solution_path(current_user,@idea,@solution) %> |
+<%= link_to 'Back', user_idea_solutions_path(current_user,@idea) %>
