@@ -6,8 +6,9 @@
 <p>
   <%= solution.description %>
 </p>
-
+<div class="controll">
 <%= link_to 'Edit', edit_user_idea_solution_path(current_user,@idea,solution) %> | 
 <%= link_to 'Destroy', user_idea_solution_path(current_user,@idea,solution),method: :delete,confirm:"are you sure?" %>
+</div>
 
 </li>

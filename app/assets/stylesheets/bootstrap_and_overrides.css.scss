@@ -27,3 +27,114 @@ body { padding-top: 60px; }
   background-color:#fff;
 }
 
+
+.box {
+  text-align: left;
+  background: white;
+  margin: 0 20px 20px 0;
+  padding: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+  .head {
+    border-bottom:1px dashed hsl(0,0,60);
+  }
+
+  ul {
+    list-style-type:none;
+    margin:0 0 10px 0;
+    li {
+      padding:0 10px;
+    }
+  }
+}
+
+#segment {
+  background-color:hsl(342,92,94);
+  li{
+    background-color:hsl(342,92,94);
+    border:1px solid hsl(342,92,94);
+  }
+  li:hover {
+    background-color:hsl(342,92,84);
+    border:1px solid hsl(342,92,54);
+  }
+}
+
+#problem {
+  background-color:hsl(324,50,87);
+  li{
+    background-color:hsl(324,50,87);
+    border:1px solid hsl(324,50,87);
+  }
+  li:hover {
+    background-color:hsl(324,50,77);
+    border:1px solid hsl(324,50,47);
+  }
+}
+
+#solution {
+  background-color:hsl(72,68,75);
+  li{
+    background-color:hsl(72,68,75);
+    border:1px solid hsl(72,68,75);
+  }
+  li:hover {
+    background-color:hsl(72,68,65);
+    border:1px solid hsl(72,68,35);
+  }
+}
+
+#metric {
+  background-color:hsl(49,94,94);
+  li{
+    background-color:hsl(49,94,94);
+    border:1px solid hsl(49,94,94);
+  }
+  li:hover {
+    background-color:hsl(49,94,84);
+    border:1px solid hsl(49,94,54);
+  }
+}
+
+#uvp {
+  background-color:hsl(27,94,87);
+  li{
+    background-color:hsl(27,94,87);
+    border:1px solid hsl(27,94,87);
+  }
+  li:hover {
+    background-color:hsl(27,94,77);
+    border:1px solid hsl(27,94,47);
+  }
+}
+
+#advantage {
+  background-color:hsl(201,50,81);
+  li{
+    background-color:hsl(201,50,81);
+    border:1px solid hsl(201,50,81);
+  }
+  li:hover {
+    background-color:hsl(201,50,71);
+    border:1px solid hsl(201,50,41);
+  }
+}
+
+#channel {
+  background-color:hsl(174,55,79);
+  li{
+    background-color:hsl(174,55,79);
+    border:1px solid hsl(174,55,79);
+  }
+  li:hover {
+    background-color:hsl(174,55,69);
+    border:1px solid hsl(174,55,39);
+  }
+}
+

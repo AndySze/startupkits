@@ -1,71 +1,108 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="items">
+<div class="items clearfix" >
   <h1> <%= @idea.title %> </h1>
   <h4> <%= @idea.description %> </h4>
 
   <div class="pull-right">
-  <%= link_to 'Edit idea', edit_user_idea_path(current_user,@idea) %> |
-  <%= link_to 'Destory this idea', [current_user,@idea],method: :delete,confirm: "Are you sure?" %> |
-  <%= link_to 'Back to all ideas', user_ideas_path(current_user) %>
-</div>
+    <%= link_to 'Edit idea', edit_user_idea_path(current_user,@idea) %> |
+    <%= link_to 'Destory this idea', [current_user,@idea],method: :delete,confirm: "Are you sure?" %> |
+    <%= link_to 'Back to all ideas', user_ideas_path(current_user) %>
+  </div>
 
   <hr>
-  <%= link_to 'New Customer segment', new_user_idea_customer_segment_path(current_user,@idea) %>
-  <%- if @customer_segments %>
-    <ul>
-    <%= render @customer_segments %>
-  </ul>
-<% end %>
+  <div class="clearfix" id="main">
+    <div class="box" id="segment">
+      <div class="head">
+        <h2>Who are your customers?</h2>
+        <p>List only the most important three customers!</p>
+      </div>
+      <%- if @customer_segments %>
+        <ul>
+        <%= render @customer_segments %>
+      </ul>
+    <% end %>
+      <%= link_to 'New Customer segment', new_user_idea_customer_segment_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-  <hr>
-  <%= link_to 'New problems', new_user_idea_problem_path(current_user,@idea) %>
-  <%- if @problems %>
-    <ul>
-    <%= render @problems %>
-  </ul>
-<% end %>
+    <div class="box" id="problem">
+      <div class="head">
+        <h2>Your customers have what problems need to be fix?</h2>
+        <p>List only the most important three problems your customers have!</p>
+      </div>
+      <%- if @problems %>
+        <ul>
+        <%= render @problems %>
+      </ul>
+    <% end %>
+      <%= link_to 'New problems', new_user_idea_problem_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-  <hr>
-  <%= link_to 'New Solution', new_user_idea_solution_path(current_user,@idea) %>
-  <%- if @solutions %>
-    <ul>
-    <%= render @solutions %>
-  </ul>
-<% end %>
+    <div class="box" id="solution">
+      <div class="head">
+        <h2>What's your solution to fix your customers' problems?</h2>
+        <p>List only the most important three solutions!</p>
+      </div>
+      <%- if @solutions %>
+        <ul>
+        <%= render @solutions %>
+      </ul>
+    <% end %>
+      <%= link_to 'New Solution', new_user_idea_solution_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-  <hr>
-  <%= link_to 'New Metric', new_user_idea_metric_path(current_user,@idea) %>
-  <%- if @metrics %>
-    <ul>
-    <%= render @metrics %>
-  </ul>
-<% end %>
+    <div class="box" id="metric">
+      <div class="head">
+        <h2>How can you indentify whether your solution will solve that problems?</h2>
+        <p>Key activies you measure!</p>
+      </div>
+      <%- if @metrics %>
+        <ul>
+        <%= render @metrics %>
+      </ul>
+    <% end %>
+      <%= link_to 'New Metric', new_user_idea_metric_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-  <hr>
-  <%= link_to 'New uvp', new_user_idea_uvp_path(current_user,@idea) %>
-  <%- if @uvps %>
-    <ul>
-    <%= render @uvps %>
-  </ul>
-<% end %>
+    <div class="box" id="uvp">
+      <div class="head">
+        <h2>What's your Unique Value Proposition?Why your customers choose you?</h2>
+        <p>Single,clear,compelling message there states why you are difference and worth buying.</p>
+      </div>
+      <%- if @uvps %>
+        <ul>
+        <%= render @uvps %>
+      </ul>
+    <% end %>
+      <%= link_to 'New uvp', new_user_idea_uvp_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-  <hr>
-  <%= link_to 'New Advantage', new_user_idea_advantage_path(current_user,@idea) %>
-  <%- if @advantages %>
-    <ul>
-    <%= render @advantages %>
-  </ul>
-<% end %>
+    <div class="box" id="advantage">
+      <div class="head">
+        <h2>What's your advantages?</h2>
+        <p>Cann't be easily copied or bought.</p>
+      </div>
+      <%- if @advantages %>
+        <ul>
+        <%= render @advantages %>
+      </ul>
+    <% end %>
+      <%= link_to 'New Advantage', new_user_idea_advantage_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-  <hr>
-  <%= link_to 'New Channel', new_user_idea_channel_path(current_user,@idea) %>
-  <%- if @channels %>
-    <ul>
-    <%= render @channels %>
-  </ul>
-<% end %>
+    <div class="box" id="channel">
+      <div class="head">
+        <h2>How can you get in touch with your customers?</h2>
+        <p>The road to your customers.</p>
+      </div>
+      <%- if @channels %>
+        <ul>
+        <%= render @channels %>
+      </ul>
+    <% end %>
+      <%= link_to 'New Channel', new_user_idea_channel_path(current_user,@idea),class:"btn btn-primary" %>
+    </div>
 
-
+  </div>
 </div>
