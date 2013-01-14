@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -8,8 +9,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @projects = @user.projects if @user.projects.any?
-    @ideas = @user.ideas if @user.ideas.any?
+    if @user == current_user
+      @projects = @user.projects if @user.projects.any?
+      @ideas = @user.ideas if @user.ideas.any?
+    else
+      redirect_to user_url(current_user)
+    end
   end
 
   def update

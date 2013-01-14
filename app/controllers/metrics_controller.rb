@@ -14,7 +14,7 @@ class MetricsController < ApplicationController
   # GET /metrics/1
   # GET /metrics/1.json
   def show
-    @metric = Metric.find(params[:id])
+    @metric = @idea.metrics.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,7 @@ class MetricsController < ApplicationController
   # GET /metrics/new
   # GET /metrics/new.json
   def new
-    @metric = Metric.new
+    @metric = @idea.metrics.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,7 +35,7 @@ class MetricsController < ApplicationController
 
   # GET /metrics/1/edit
   def edit
-    @metric = Metric.find(params[:id])
+    @metric = @idea.metrics.find(params[:id])
   end
 
   # POST /metrics

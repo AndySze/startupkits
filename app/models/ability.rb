@@ -5,6 +5,16 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+    else
+      can :manage, Project do |project|
+        (project.user_id == user.id)
+      end
+      can :manage, Idea do |idea|
+        (idea.user_id == user.id)
+      end
+      can :manage, User do |u|
+        (u.id == user.id)
+      end
     end
     # Define abilities for the passed in user here. For example:
     #

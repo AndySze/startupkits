@@ -15,7 +15,7 @@ class ProblemsController < ApplicationController
   # GET /problems/1
   # GET /problems/1.json
   def show
-    @problem = Problem.find(params[:id])
+    @problem = @idea.problems.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class ProblemsController < ApplicationController
 
   # GET /problems/1/edit
   def edit
-    @problem = Problem.find(params[:id])
+    @problem = @idea.problems.find(params[:id])
   end
 
   # POST /problems

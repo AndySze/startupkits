@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_idea
-    @idea = Idea.find(params[:idea_id])
+    if current_user.id != params[:user_id]
+      redirect_to user_url(current_user)
+    else
+      @idea = current_user.ideas.find(params[:idea_id])
+    end
   end
 
 end

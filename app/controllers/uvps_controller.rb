@@ -14,7 +14,7 @@ class UvpsController < ApplicationController
   # GET /uvps/1
   # GET /uvps/1.json
   def show
-    @uvp = Uvp.find(params[:id])
+    @uvp = @idea.uvps.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,7 @@ class UvpsController < ApplicationController
   # GET /uvps/new
   # GET /uvps/new.json
   def new
-    @uvp = Uvp.new
+    @uvp = @idea.uvps.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,7 +35,7 @@ class UvpsController < ApplicationController
 
   # GET /uvps/1/edit
   def edit
-    @uvp = Uvp.find(params[:id])
+    @uvp = @idea.uvps.find(params[:id])
   end
 
   # POST /uvps

@@ -29,6 +29,9 @@ body { padding-top: 60px; }
 
 
 .box {
+  width: 45%;
+  height: 435px;
+  float: left;
   text-align: left;
   background: white;
   margin: 0 20px 20px 0;
@@ -50,6 +53,16 @@ body { padding-top: 60px; }
     margin:0 0 10px 0;
     li {
       padding:0 10px;
+      position: relative;
+      .pull-right {
+         position:absolute;
+         top:5px;
+         right:10px;
+         display: none;
+      }
+    }
+    li:hover .pull-right {
+      display: block;
     }
   }
 }

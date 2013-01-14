@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  load_and_authorize_resource
   # GET /ideas
   # GET /ideas.json
   def index
@@ -13,7 +14,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
     @customer_segments = @idea.customer_segments.limit(3)#list only three most important segments
     @problems = @idea.problems
     @solutions = @idea.solutions
@@ -41,7 +42,7 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
   end
 
   # POST /ideas
@@ -63,7 +64,7 @@ class IdeasController < ApplicationController
   # PUT /ideas/1
   # PUT /ideas/1.json
   def update
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
 
     respond_to do |format|
       if @idea.update_attributes(params[:idea])

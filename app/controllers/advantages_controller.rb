@@ -14,7 +14,7 @@ class AdvantagesController < ApplicationController
   # GET /advantages/1
   # GET /advantages/1.json
   def show
-    @advantage = Advantage.find(params[:id])
+    @advantage = @idea.advantages.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,7 @@ class AdvantagesController < ApplicationController
   # GET /advantages/new
   # GET /advantages/new.json
   def new
-    @advantage = Advantage.new
+    @advantage = @idea.advantages.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,7 +35,7 @@ class AdvantagesController < ApplicationController
 
   # GET /advantages/1/edit
   def edit
-    @advantage = Advantage.find(params[:id])
+    @advantage = @idea.advantages.find(params[:id])
   end
 
   # POST /advantages

@@ -6,9 +6,9 @@
 <p>
   <%= solution.description %>
 </p>
-<div class="controll">
-<%= link_to 'Edit', edit_user_idea_solution_path(current_user,@idea,solution) %> | 
-<%= link_to 'Destroy', user_idea_solution_path(current_user,@idea,solution),method: :delete,confirm:"are you sure?" %>
+<div class="pull-right">
+<%= link_to '<i class="icon-edit"></i>'.html_safe, edit_user_idea_solution_path(current_user,@idea,solution) %> | 
+<%= link_to '<i class="icon-remove"></i>'.html_safe, user_idea_solution_path(current_user,@idea,solution),method: :delete,confirm:"are you sure?" %>
 </div>
 
 </li>

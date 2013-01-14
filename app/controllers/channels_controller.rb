@@ -14,7 +14,7 @@ class ChannelsController < ApplicationController
   # GET /channels/1
   # GET /channels/1.json
   def show
-    @channel = Channel.find(params[:id])
+    @channel = @idea.channels.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,7 @@ class ChannelsController < ApplicationController
   # GET /channels/new
   # GET /channels/new.json
   def new
-    @channel = Channel.new
+    @channel = @idea.channels.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,7 +35,7 @@ class ChannelsController < ApplicationController
 
   # GET /channels/1/edit
   def edit
-    @channel = Channel.find(params[:id])
+    @channel = @idea.channels.find(params[:id])
   end
 
   # POST /channels

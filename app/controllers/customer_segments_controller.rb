@@ -15,7 +15,7 @@ class CustomerSegmentsController < ApplicationController
   # GET /customer_segments/1
   # GET /customer_segments/1.json
   def show
-    @customer_segment = CustomerSegment.find(params[:id])
+    @customer_segment = @idea.customer_segments.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class CustomerSegmentsController < ApplicationController
 
   # GET /customer_segments/1/edit
   def edit
-    @customer_segment = CustomerSegment.find(params[:id])
+    @customer_segment = @idea.customer_segments.find(params[:id])
   end
 
   # POST /customer_segments

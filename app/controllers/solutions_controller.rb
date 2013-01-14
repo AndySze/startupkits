@@ -14,7 +14,7 @@ class SolutionsController < ApplicationController
   # GET /solutions/1
   # GET /solutions/1.json
   def show
-    @solution = Solution.find(params[:id])
+    @solution = @idea.solutions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,7 @@ class SolutionsController < ApplicationController
   # GET /solutions/new
   # GET /solutions/new.json
   def new
-    @solution = Solution.new
+    @solution = @idea.solutions.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,7 +35,7 @@ class SolutionsController < ApplicationController
 
   # GET /solutions/1/edit
   def edit
-    @solution = Solution.find(params[:id])
+    @solution = @idea.solutions.find(params[:id])
   end
 
   # POST /solutions
