@@ -15,58 +15,51 @@ ActiveRecord::Schema.define(:version => 20130112084406) do
 
   create_table "advantages", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "channels", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "customer_segments", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "ideas", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "metrics", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "problems", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "projects", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -82,10 +75,9 @@ ActiveRecord::Schema.define(:version => 20130112084406) do
 
   create_table "solutions", :force => true do |t|
     t.string   "feature"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -116,10 +108,9 @@ ActiveRecord::Schema.define(:version => 20130112084406) do
 
   create_table "uvps", :force => true do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "idea_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

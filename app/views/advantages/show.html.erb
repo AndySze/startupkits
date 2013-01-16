@@ -5,11 +5,5 @@
   <%= @advantage.title %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @advantage.description %>
-</p>
-
-
 <%= link_to 'Edit', edit_user_idea_advantage_path(current_user,@idea,@advantage) %> |
 <%= link_to 'Back', user_idea_advantages_path(current_user,@idea) %>

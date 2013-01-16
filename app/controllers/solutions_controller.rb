@@ -41,7 +41,7 @@ class SolutionsController < ApplicationController
   # POST /solutions
   # POST /solutions.json
   def create
-    @solution = @idea.solutions.new(params[:solution])
+    @solution = @idea.solutions.new(feature: params[:toSent]) #@idea.solutions.new(params[:solution])
 
     respond_to do |format|
       if @solution.save

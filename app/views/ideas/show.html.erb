@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="items clearfix" >
   <h1> <%= @idea.title %> </h1>
-  <h4> <%= @idea.description %> </h4>
 
   <div class="pull-right">
     <%= link_to 'Edit idea', edit_user_idea_path(current_user,@idea) %> |
@@ -12,97 +8,96 @@
   </div>
 
   <hr>
-  <div class="clearfix" id="main">
-    <div class="box" id="segment">
-      <div class="head">
-        <h2>Who are your customers?</h2>
-        <p>List only the most important three customers!</p>
-      </div>
-      <%- if @customer_segments %>
-        <ul>
-        <%= render @customer_segments %>
-      </ul>
-    <% end %>
-      <%= link_to 'New Customer segment', new_user_idea_customer_segment_path(current_user,@idea),class:"btn btn-primary" %>
-    </div>
 
-    <div class="box" id="problem">
-      <div class="head">
-        <h2>Your customers have what problems need to be fix?</h2>
-        <p>List only the most important three problems your customers have!</p>
-      </div>
-      <%- if @problems %>
-        <ul>
-        <%= render @problems %>
-      </ul>
-    <% end %>
-      <%= link_to 'New problems', new_user_idea_problem_path(current_user,@idea),class:"btn btn-primary" %>
+  <!-- Canvas -->
+      <table id="ideacanvas" border="1">
+        <tr>
+          <td class="area" id="problems" colspan="2" rowspan="2">
+            <h4>Problem</h4>
+            <p>Need to present business models for partner to discuss with</p>
+            <div class="items" id="three">
+            <%- if @problems %>
+              <ol>
+              <%= render @problems %>
+            </ol>
+          <% end %>
+        </div>
+          </td>
+          <td class="area" id="solutions" colspan="2">
+            <h4>Solution</h4>
+            <p>...</p>
+            <div class="items" id="three">
+            <%- if @solutions %>
+              <ol>
+              <%= render @solutions %>
+            </ol>
+          <% end %>
+        </div>
+          </td>
+          <td  class="area" id="uvps" colspan="2" rowspan="2">
+            <h4>Value Proposition</h4>
+            <p>...</p>
+            <div class="items">
+            <%- if @uvps %>
+              <ol>
+              <%= render @uvps %>
+            </ol>
+          <% end %>
+          </td>
+          <td  class="area" id="advantages" colspan="2">
+            <h4>Unfair Advantage</h4>
+            <p>...</p>
+            <div class="items">
+            <%- if @advantages %>
+              <ol>
+              <%= render @advantages %>
+            </ol>
+          <% end %>
+        </div>
+          </td>
+          <td  class="area" id="customer_segments" colspan="2" rowspan="2">
+            <h4>Customer Segments</h4>
+            <div class="items" id="three">
+              <%- if @customer_segments %>
+                <ol>
+                <%= render @customer_segments %>
+              </ol>
+            <% end %>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td  class="area" id="metrics" colspan="2">
+            <h4>Key Metrics</h4>
+            <div class="items">
+            <%- if @metrics %>
+              <ol>
+              <%= render @metrics %>
+            </ol>
+          <% end %>
+        </div>
+          </td>
+          <td  class="area" id="channels" colspan="2">
+            <h4>Channels</h4>
+            <div class="items">
+              <%- if @channels %>
+                <ol>
+                <%= render @channels %>
+              </ol>
+            <% end %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td  class="area" colspan="5">
+            <h4>Cost Structure</h4>
+            <p>...</p>
+          </td>
+          <td  class="area" colspan="5">
+            <h4>Revenue Streams</h4>
+            <p>...</p>
+          </td>
+        </tr>
+      </table>
+      <!-- /Canvas -->
     </div>
-
-    <div class="box" id="solution">
-      <div class="head">
-        <h2>What's your solution to fix your customers' problems?</h2>
-        <p>List only the most important three solutions!</p>
-      </div>
-      <%- if @solutions %>
-        <ul>
-        <%= render @solutions %>
-      </ul>
-    <% end %>
-      <%= link_to 'New Solution', new_user_idea_solution_path(current_user,@idea),class:"btn btn-primary" %>
-    </div>
-
-    <div class="box" id="metric">
-      <div class="head">
-        <h2>How can you indentify whether your solution will solve that problems?</h2>
-        <p>Key activies you measure!</p>
-      </div>
-      <%- if @metrics %>
-        <ul>
-        <%= render @metrics %>
-      </ul>
-    <% end %>
-      <%= link_to 'New Metric', new_user_idea_metric_path(current_user,@idea),class:"btn btn-primary" %>
-    </div>
-
-    <div class="box" id="uvp">
-      <div class="head">
-        <h2>Why your customers choose you,not your competitor?</h2>
-        <p>Single,clear,compelling message there states why you are difference and worth buying.</p>
-      </div>
-      <%- if @uvps %>
-        <ul>
-        <%= render @uvps %>
-      </ul>
-    <% end %>
-      <%= link_to 'New uvp', new_user_idea_uvp_path(current_user,@idea),class:"btn btn-primary" %>
-    </div>
-
-    <div class="box" id="advantage">
-      <div class="head">
-        <h2>What's your advantages?</h2>
-        <p>Cann't be easily copied or bought.</p>
-      </div>
-      <%- if @advantages %>
-        <ul>
-        <%= render @advantages %>
-      </ul>
-    <% end %>
-      <%= link_to 'New Advantage', new_user_idea_advantage_path(current_user,@idea),class:"btn btn-primary" %>
-    </div>
-
-    <div class="box" id="channel">
-      <div class="head">
-        <h2>How can you get in touch with your customers?</h2>
-        <p>The road to your customers.</p>
-      </div>
-      <%- if @channels %>
-        <ul>
-        <%= render @channels %>
-      </ul>
-    <% end %>
-      <%= link_to 'New Channel', new_user_idea_channel_path(current_user,@idea),class:"btn btn-primary" %>
-    </div>
-
-  </div>
-</div>

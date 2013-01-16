@@ -41,7 +41,7 @@ class AdvantagesController < ApplicationController
   # POST /advantages
   # POST /advantages.json
   def create
-    @advantage = @idea.advantages.new(params[:advantage])
+    @advantage = @idea.advantages.new(title: params[:toSent]) #@idea.advantages.new(params[:advantage])
 
     respond_to do |format|
       if @advantage.save

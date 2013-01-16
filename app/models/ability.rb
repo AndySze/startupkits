@@ -9,9 +9,9 @@ class Ability
       can :manage, Project do |project|
         (project.user_id == user.id)
       end
-      can :manage, Idea do |idea|
-        (idea.user_id == user.id)
-      end
+      #can :manage, Idea do |idea|
+      #  (idea.user_id == user.id)
+      #end
       can :manage, User do |u|
         (u.id == user.id)
       end

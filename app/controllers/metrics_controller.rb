@@ -41,7 +41,7 @@ class MetricsController < ApplicationController
   # POST /metrics
   # POST /metrics.json
   def create
-    @metric = @idea.metrics.new(params[:metric])
+    @metric = @idea.metrics.new(title: params[:toSent]) #@idea.metrics.new(params[:metric])
 
     respond_to do |format|
       if @metric.save

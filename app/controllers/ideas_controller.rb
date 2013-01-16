@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     @idea = current_user.ideas.find(params[:id])
-    @customer_segments = @idea.customer_segments.limit(3)#list only three most important segments
+    @customer_segments = @idea.customer_segments#list only three most important segments
     @problems = @idea.problems
     @solutions = @idea.solutions
     @metrics = @idea.metrics

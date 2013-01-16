@@ -5,16 +5,5 @@
   <%= @uvp.title %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @uvp.description %>
-</p>
-
-<p>
-  <b>Idea:</b>
-  <%= @uvp.idea_id %>
-</p>
-
-
 <%= link_to 'Edit', edit_user_idea_uvp_path(current_user,@idea,@uvp) %> |
 <%= link_to 'Back', user_idea_uvps_path(current_user,@idea) %>

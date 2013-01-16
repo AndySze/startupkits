@@ -41,7 +41,7 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    @channel = @idea.channels.new(params[:channel])
+    @channel = @idea.channels.new(title: params[:toSent]) #@idea.channels.new(params[:channel])
 
     respond_to do |format|
       if @channel.save

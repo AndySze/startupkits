@@ -4,7 +4,7 @@ class CustomerSegmentsController < ApplicationController
   # GET /customer_segments
   # GET /customer_segments.json
   def index
-    @customer_segments = @idea.customer_segments.limit(3)
+    @customer_segments = @idea.customer_segments
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,7 +42,7 @@ class CustomerSegmentsController < ApplicationController
   # POST /customer_segments
   # POST /customer_segments.json
   def create
-    @customer_segment = @idea.customer_segments.new(params[:customer_segment])
+    @customer_segment = @idea.customer_segments.new(title: params[:toSent]) # @idea.customer_segments.new(params[:customer_segment]) #change to ajax
 
     respond_to do |format|
       if @customer_segment.save

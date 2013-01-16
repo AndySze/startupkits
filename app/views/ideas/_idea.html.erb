@@ -1,7 +1,6 @@
 <div class="fix-box">
   <%= link_to  [current_user,idea],title:"#{idea.title}" do %>
     <h4><%= idea.title %></h4>
-    <p><%= idea.description %></p>
     <p><%= idea.customer_segments.count %> Customer Segments,
     <%= idea.problems.count %> Problems,
     <%= idea.solutions.count %> Solutions,

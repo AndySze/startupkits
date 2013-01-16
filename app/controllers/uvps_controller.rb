@@ -41,7 +41,7 @@ class UvpsController < ApplicationController
   # POST /uvps
   # POST /uvps.json
   def create
-    @uvp = @idea.uvps.new(params[:uvp])
+    @uvp = @idea.uvps.new(title: params[:toSent]) #@idea.uvps.new(params[:uvp])
 
     respond_to do |format|
       if @uvp.save

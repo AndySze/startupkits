@@ -42,7 +42,7 @@ class ProblemsController < ApplicationController
   # POST /problems
   # POST /problems.json
   def create
-    @problem = @idea.problems.new(params[:problem])
+    @problem = @idea.problems.new(title: params[:toSent])
 
     respond_to do |format|
       if @problem.save

@@ -5,16 +5,6 @@
   <%= @problem.title %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @problem.description %>
-</p>
-
-<p>
-  <b>Idea:</b>
-  <%= @problem.idea_id %>
-</p>
-
 
 <%= link_to 'Edit', edit_user_idea_problem_path(current_user,@idea,@problem) %> |
 <%= link_to 'Back', user_idea_problems_path(current_user,@idea) %>

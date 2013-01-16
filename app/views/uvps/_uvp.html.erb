@@ -1,15 +1,7 @@
-<li class="clearfix">
-<div class="">
-<h4>
-  <%= uvp.title %>
-</h4>
+<li data-id=<%= uvp.id %>>
+<%= uvp.title %>
 
-<p>
-<%= uvp.description %>
-</p>
-</div>
-
-<div class="pull-right">
+<div class="options pull-right">
   <%= link_to '<i class="icon-edit"></i>'.html_safe, edit_user_idea_uvp_path(current_user,@idea,uvp),title:"Edit" %> |
   <%= link_to '<i class="icon-remove"></i>'.html_safe, user_idea_uvp_path(current_user,@idea,uvp),title:"Destroy",method: :delete,confirm:"are you sure?" %>
 </div>
