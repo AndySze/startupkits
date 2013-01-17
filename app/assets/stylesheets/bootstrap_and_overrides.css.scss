@@ -1,5 +1,5 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+//body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 .fix-box {
@@ -146,6 +146,30 @@ body { padding-top: 60px; }
   li:hover {
     background-color:hsl(174,55,69);
     border:1px solid hsl(174,55,39);
+  }
+}
+
+#structures {
+  background-color:hsl(334,80,79);
+  li{
+    background-color:hsl(334,80,79);
+    border:1px solid hsl(334,80,79);
+  }
+  li:hover {
+    background-color:hsl(334,80,69);
+    border:1px solid hsl(334,80,39);
+  }
+}
+
+#revenues {
+  background-color:hsl(134,55,79);
+  li{
+    background-color:hsl(134,55,79);
+    border:1px solid hsl(134,55,79);
+  }
+  li:hover {
+    background-color:hsl(134,55,69);
+    border:1px solid hsl(134,55,39);
   }
 }
 

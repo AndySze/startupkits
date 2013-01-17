@@ -1,0 +1,8 @@
+<li data-id=<%= revenue.id %>>
+  <%= revenue.title %>
+
+<div class="options pull-right">
+  <%= link_to '<i class="icon-remove"></i>'.html_safe, user_idea_revenue_path(current_user,@idea,revenue),method: :delete,confirm:"are you sure?" %>
+</div>
+</li>
+

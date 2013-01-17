@@ -1,5 +1,5 @@
 class CustomerSegment < ActiveRecord::Base
-  attr_accessible :description, :title, :idea_id
+  attr_accessible  :title, :idea_id
 
   belongs_to :idea
 end

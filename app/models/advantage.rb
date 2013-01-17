@@ -1,4 +1,4 @@
 class Advantage < ActiveRecord::Base
-  attr_accessible :description, :idea_id, :title
+  attr_accessible  :idea_id, :title
   belongs_to :idea
 end

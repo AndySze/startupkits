@@ -5,12 +5,6 @@
   <%= @project.title %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
-
-
 <%= link_to 'Edit', edit_user_project_path(current_user,@project) %> |
 <%= link_to 'Destory', [current_user,@project],method: :delete,confirm: "Are you sure?" %> |
 <%= link_to 'Back', user_projects_path(current_user) %>

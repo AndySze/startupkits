@@ -6,12 +6,17 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     else
-      can :manage, Project do |project|
+
+      can :create, Project
+      can [:read, :update, :destroy], Project do |project|
         (project.user_id == user.id)
       end
-      #can :manage, Idea do |idea|
-      #  (idea.user_id == user.id)
-      #end
+
+      can :create, Idea
+      can [:read, :update, :destroy], Idea do |idea|
+        (idea.user_id == user.id)
+      end
+
       can :manage, User do |u|
         (u.id == user.id)
       end

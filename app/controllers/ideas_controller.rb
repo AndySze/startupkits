@@ -22,6 +22,8 @@ class IdeasController < ApplicationController
     @uvps = @idea.uvps
     @advantages = @idea.advantages
     @channels = @idea.channels
+    @structure = @idea.structure
+    @revenue = @idea.revenue
 
     respond_to do |format|
       format.html # show.html.erb

@@ -31,7 +31,7 @@ jQuery ($) ->
       inputField = $(@).closest('.item-insert').find('input')
       content = $(inputField).val()
       canvasComponent = $(@).closest('td.area').attr('id')
-      link = $(location).attr('href') + '/' + canvasComponent
+      link = $(location).attr('href') + '/' + canvasComponent + '.json'
       if content isnt ''
         $.ajax
           url: link
@@ -45,9 +45,9 @@ jQuery ($) ->
               <ul>
                 <div class='item-container'>
                   <div class='item'>
-                    <li style='color: #{data.color}' data-id=#{data.text}>#{content}</li>
+                    <li style='color: #{data.color}' data-id=#{data.id}>#{content}</li>
                   </div>
-                  <div class='item-options'>
+                  <div class='options pull-right'>
                     <a href='#' rel='tooltip' title='Change label' class='switch-color'><i class='icon-tag'></i></a>
                     <a href='#' rel='tooltip' title='Delete item' class='remove-item'><i class='icon-remove'></i></a>
                   </div>

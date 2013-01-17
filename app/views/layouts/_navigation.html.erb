@@ -17,10 +17,10 @@
       <li>
       <%= link_to 'Admin', users_path %>
       </li>
+    <% end %>
       <li>
       <%= link_to "#{current_user.name}", current_user %>
       </li>
-    <% end %>
   <% else %>
     <li>
     <%= link_to 'Sign up', new_user_registration_path %>

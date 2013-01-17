@@ -12,13 +12,15 @@ Startupkit::Application.routes.draw do
   resources :users do
     resources :projects
     resources :ideas do
-      resources :customer_segments
-      resources :problems
-      resources :metrics
-      resources :channels
-      resources :advantages
-      resources :uvps
-      resources :solutions
+      resources :customer_segments, :only => [:destroy, :create]
+      resources :problems, :only => [:destroy, :create]
+      resources :metrics, :only => [:destroy, :create]
+      resources :channels, :only => [:destroy, :create]
+      resources :advantages, :only => [:destroy, :create]
+      resources :uvps, :only => [:destroy, :create]
+      resources :solutions, :only => [:destroy, :create]
+      resources :structures, :only => [:destroy, :create]
+      resources :revenues, :only => [:destroy, :create]
     end
   end
 end

@@ -9,4 +9,6 @@ class Idea < ActiveRecord::Base
   has_many :channels, :dependent=> :destroy
   has_many :metrics, :dependent=> :destroy
   has_many :solutions, :dependent=> :destroy
+  has_many :structure, :dependent=> :destroy
+  has_many :revenue, :dependent=> :destroy
 end

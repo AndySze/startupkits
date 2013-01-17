@@ -44,14 +44,12 @@ class CustomerSegmentsController < ApplicationController
   def create
     @customer_segment = @idea.customer_segments.new(title: params[:toSent]) # @idea.customer_segments.new(params[:customer_segment]) #change to ajax
 
-    respond_to do |format|
-      if @customer_segment.save
-        format.html { redirect_to [current_user,@idea,@customer_segment], notice: 'Customer segment was successfully created.' }
-        format.json { render json: @customer_segment, status: :created, location: @customer_segment }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @customer_segment.errors, status: :unprocessable_entity }
-      end
+    if @customer_segment.save
+      #format.html { redirect_to [current_user,@idea,@customer_segment], notice: 'Customer segment was successfully created.' }
+      render :json => {text: 'success',id: "#{@customer_segment.id}" }
+    else
+      #format.html { render action: "new" }
+      render :json => {text: 'fail' }
     end
   end
 
@@ -74,7 +72,7 @@ class CustomerSegmentsController < ApplicationController
   # DELETE /customer_segments/1
   # DELETE /customer_segments/1.json
   def destroy
-    @customer_segment = CustomerSegment.find(params[:id])
+    @customer_segment = @idea.customer_segments.find(params[:id])
     @customer_segment.destroy
 
     respond_to do |format|

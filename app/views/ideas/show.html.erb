@@ -14,7 +14,6 @@
         <tr>
           <td class="area" id="problems" colspan="2" rowspan="2">
             <h4>Problem</h4>
-            <p>Need to present business models for partner to discuss with</p>
             <div class="items" id="three">
             <%- if @problems %>
               <ol>
@@ -25,7 +24,6 @@
           </td>
           <td class="area" id="solutions" colspan="2">
             <h4>Solution</h4>
-            <p>...</p>
             <div class="items" id="three">
             <%- if @solutions %>
               <ol>
@@ -36,7 +34,6 @@
           </td>
           <td  class="area" id="uvps" colspan="2" rowspan="2">
             <h4>Value Proposition</h4>
-            <p>...</p>
             <div class="items">
             <%- if @uvps %>
               <ol>
@@ -46,7 +43,6 @@
           </td>
           <td  class="area" id="advantages" colspan="2">
             <h4>Unfair Advantage</h4>
-            <p>...</p>
             <div class="items">
             <%- if @advantages %>
               <ol>
@@ -89,13 +85,25 @@
           </td>
         </tr>
         <tr>
-          <td  class="area" colspan="5">
+          <td  class="area" id="structures" colspan="5">
             <h4>Cost Structure</h4>
-            <p>...</p>
+            <div class="items" id="three">
+              <%- if @structure %>
+                <ol>
+                <%= render @structure %>
+              </ol>
+            <% end %>
+          </div>
           </td>
-          <td  class="area" colspan="5">
+          <td  class="area" id="revenues" colspan="5">
             <h4>Revenue Streams</h4>
-            <p>...</p>
+            <div class="items" id="three">
+              <%- if @revenue %>
+                <ol>
+                <%= render @revenue %>
+              </ol>
+            <% end %>
+          </div>
           </td>
         </tr>
       </table>
