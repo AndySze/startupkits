@@ -19,14 +19,10 @@ class StructuresController < ApplicationController
   def update
     @structure = CustomerSegment.find(params[:id])
 
-    respond_to do |format|
-      if @structure.update_attributes(params[:structure])
-        format.html { redirect_to [current_user,@idea,@structure], notice: 'Customer segment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @structure.errors, status: :unprocessable_entity }
-      end
+    if @structure.update_attributes(params[:structure])
+      render json: { text: "success"}
+    else
+      render json: { text: "fail" }
     end
   end
 

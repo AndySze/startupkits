@@ -43,14 +43,10 @@ class MetricsController < ApplicationController
   def create
     @metric = @idea.metrics.new(title: params[:toSent]) #@idea.metrics.new(params[:metric])
 
-    respond_to do |format|
-      if @metric.save
-        format.html { redirect_to [current_user,@idea,@metric], notice: 'Metric was successfully created.' }
-        format.json { render json: @metric, status: :created, location: @metric }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @metric.errors, status: :unprocessable_entity }
-      end
+    if @metric.save
+      render json: { text: "success", id: "#{@metric.id}" }
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -59,14 +55,10 @@ class MetricsController < ApplicationController
   def update
     @metric = @idea.metrics.find(params[:id])
 
-    respond_to do |format|
-      if @metric.update_attributes(params[:metric])
-        format.html { redirect_to [current_user,@idea,@metric], notice: 'Metric was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @metric.errors, status: :unprocessable_entity }
-      end
+    if @metric.update_attributes(params[:metric])
+      render json: { text: "success"}
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -76,9 +68,6 @@ class MetricsController < ApplicationController
     @metric = Metric.find(params[:id])
     @metric.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success"}
   end
 end

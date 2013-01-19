@@ -43,14 +43,10 @@ class AdvantagesController < ApplicationController
   def create
     @advantage = @idea.advantages.new(title: params[:toSent]) #@idea.advantages.new(params[:advantage])
 
-    respond_to do |format|
-      if @advantage.save
-        format.html { redirect_to [current_user,@idea,@advantage], notice: 'Advantage was successfully created.' }
-        format.json { render json: @advantage, status: :created, location: @advantage }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @advantage.errors, status: :unprocessable_entity }
-      end
+    if @advantage.save
+      render json: { text: "success", id: "#{@advantage.id}"}
+    else
+      render json: { text: "fail" }
     end
   end
 
@@ -59,26 +55,19 @@ class AdvantagesController < ApplicationController
   def update
     @advantage = @idea.advantages.find(params[:id])
 
-    respond_to do |format|
-      if @advantage.update_attributes(params[:advantage])
-        format.html { redirect_to [current_user,@idea,@advantage], notice: 'Advantage was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @advantage.errors, status: :unprocessable_entity }
-      end
+    if @advantage.update_attributes(params[:advantage])
+      render json: { text: "success" }
+    else
+      render json: { text: "fail"}
     end
   end
 
   # DELETE /advantages/1
   # DELETE /advantages/1.json
   def destroy
-    @advantage = Advantage.find(params[:id])
+    @advantage = @idea.advantages.find(params[:id])
     @advantage.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success" }
   end
 end

@@ -19,14 +19,10 @@ class RevenuesController < ApplicationController
   def update
     @revenue = CustomerSegment.find(params[:id])
 
-    respond_to do |format|
-      if @revenue.update_attributes(params[:revenue])
-        format.html { redirect_to [current_user,@idea,@revenue], notice: 'Customer segment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @revenue.errors, status: :unprocessable_entity }
-      end
+    if @revenue.update_attributes(params[:revenue])
+      render json: { text: "success"}
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -36,9 +32,7 @@ class RevenuesController < ApplicationController
     @revenue = @idea.revenue.find(params[:id])
     @revenue.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success"}
   end
 end
+

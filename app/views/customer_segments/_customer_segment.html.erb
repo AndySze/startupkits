@@ -2,7 +2,7 @@
   <%= customer_segment.title %>
 
 <div class="options pull-right">
-  <%= link_to '<i class="icon-remove"></i>'.html_safe, user_idea_customer_segment_path(current_user,@idea,customer_segment),method: :delete,confirm:"are you sure?" %>
+  <a href='#' rel='tooltip' title='Delete item' class='remove-item'><i class='icon-remove'></i></a>
 </div>
 </li>
 

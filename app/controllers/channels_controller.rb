@@ -43,14 +43,10 @@ class ChannelsController < ApplicationController
   def create
     @channel = @idea.channels.new(title: params[:toSent]) #@idea.channels.new(params[:channel])
 
-    respond_to do |format|
-      if @channel.save
-        format.html { redirect_to [current_user,@idea,@channel], notice: 'Channel was successfully created.' }
-        format.json { render json: @channel, status: :created, location: @channel }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @channel.errors, status: :unprocessable_entity }
-      end
+    if @channel.save
+      render json: { text: "success", id: "#{@channel.id}"}
+    else
+      render json: {text: "fail"}
     end
   end
 
@@ -59,26 +55,19 @@ class ChannelsController < ApplicationController
   def update
     @channel = @idea.channels.find(params[:id])
 
-    respond_to do |format|
-      if @channel.update_attributes(params[:channel])
-        format.html { redirect_to [current_user,@idea,@channel], notice: 'Channel was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @channel.errors, status: :unprocessable_entity }
-      end
+    if @channel.update_attributes(params[:channel])
+      render json: { text: "success" }
+    else
+      render json: { text: "fail" }
     end
   end
 
   # DELETE /channels/1
   # DELETE /channels/1.json
   def destroy
-    @channel = Channel.find(params[:id])
+    @channel = @idea.channels.find(params[:id])
     @channel.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success" }
   end
 end

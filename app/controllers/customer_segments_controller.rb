@@ -58,14 +58,10 @@ class CustomerSegmentsController < ApplicationController
   def update
     @customer_segment = CustomerSegment.find(params[:id])
 
-    respond_to do |format|
-      if @customer_segment.update_attributes(params[:customer_segment])
-        format.html { redirect_to [current_user,@idea,@customer_segment], notice: 'Customer segment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @customer_segment.errors, status: :unprocessable_entity }
-      end
+    if @customer_segment.update_attributes(params[:customer_segment])
+      render json: { text: "success" }
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -75,10 +71,7 @@ class CustomerSegmentsController < ApplicationController
     @customer_segment = @idea.customer_segments.find(params[:id])
     @customer_segment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success" }
   end
 
 end

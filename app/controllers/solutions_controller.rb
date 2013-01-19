@@ -43,14 +43,10 @@ class SolutionsController < ApplicationController
   def create
     @solution = @idea.solutions.new(feature: params[:toSent]) #@idea.solutions.new(params[:solution])
 
-    respond_to do |format|
-      if @solution.save
-        format.html { redirect_to [current_user,@idea,@solution], notice: 'Solution was successfully created.' }
-        format.json { render json: @solution, status: :created, location: @solution }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @solution.errors, status: :unprocessable_entity }
-      end
+    if @solution.save
+      render json: { text: "success", id: "#{@solution.id}" }
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -59,14 +55,10 @@ class SolutionsController < ApplicationController
   def update
     @solution = @idea.solutions.find(params[:id])
 
-    respond_to do |format|
-      if @solution.update_attributes(params[:solution])
-        format.html { redirect_to [current_user,@idea,@solution], notice: 'Solution was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @solution.errors, status: :unprocessable_entity }
-      end
+    if @solution.update_attributes(params[:solution])
+      render json: { text: "success" }
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -76,9 +68,6 @@ class SolutionsController < ApplicationController
     @solution = Solution.find(params[:id])
     @solution.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success" }
   end
 end

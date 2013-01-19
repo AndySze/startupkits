@@ -44,14 +44,10 @@ class ProblemsController < ApplicationController
   def create
     @problem = @idea.problems.new(title: params[:toSent])
 
-    respond_to do |format|
-      if @problem.save
-        format.html { redirect_to [current_user,@idea,@problem], notice: 'Problem was successfully created.' }
-        format.json { render json: @problem, status: :created, location: @problem }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @problem.errors, status: :unprocessable_entity }
-      end
+    if @problem.save
+      render json: { text: "success", id: "#{@problem.id}" }
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -60,14 +56,10 @@ class ProblemsController < ApplicationController
   def update
     @problem = @idea.problems.find(params[:id])
 
-    respond_to do |format|
-      if @problem.update_attributes(params[:problem])
-        format.html { redirect_to [current_user,@idea,@problem], notice: 'Problem was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @problem.errors, status: :unprocessable_entity }
-      end
+    if @problem.update_attributes(params[:problem])
+      render json: { text: "success"}
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -77,10 +69,7 @@ class ProblemsController < ApplicationController
     @problem = Problem.find(params[:id])
     @problem.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back}
-      format.json { head :no_content }
-    end
+    render json: { text: "success"}
   end
 
   private

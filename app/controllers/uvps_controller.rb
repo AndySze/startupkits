@@ -43,14 +43,10 @@ class UvpsController < ApplicationController
   def create
     @uvp = @idea.uvps.new(title: params[:toSent]) #@idea.uvps.new(params[:uvp])
 
-    respond_to do |format|
-      if @uvp.save
-        format.html { redirect_to [current_user,@idea,@uvp], notice: 'Uvp was successfully created.' }
-        format.json { render json: @uvp, status: :created, location: @uvp }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @uvp.errors, status: :unprocessable_entity }
-      end
+    if @uvp.save
+      render json: { text: "success", id: "#{@uvp.id}" }
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -59,14 +55,10 @@ class UvpsController < ApplicationController
   def update
     @uvp = @idea.uvps.find(params[:id])
 
-    respond_to do |format|
-      if @uvp.update_attributes(params[:uvp])
-        format.html { redirect_to [current_user,@idea,@uvp], notice: 'Uvp was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @uvp.errors, status: :unprocessable_entity }
-      end
+    if @uvp.update_attributes(params[:uvp])
+      render json: { text: "success"}
+    else
+      render json: { text: "fail"}
     end
   end
 
@@ -76,9 +68,6 @@ class UvpsController < ApplicationController
     @uvp = Uvp.find(params[:id])
     @uvp.destroy
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
-    end
+    render json: { text: "success"}
   end
 end

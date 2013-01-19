@@ -2,7 +2,7 @@
   <%= revenue.title %>
 
 <div class="options pull-right">
-  <%= link_to '<i class="icon-remove"></i>'.html_safe, user_idea_revenue_path(current_user,@idea,revenue),method: :delete,confirm:"are you sure?" %>
+  <a href='#' rel='tooltip' title='Delete item' class='remove-item'><i class='icon-remove'></i></a>
 </div>
 </li>
 

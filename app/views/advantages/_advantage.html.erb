@@ -1,6 +1,6 @@
 <li data-id=<%= advantage.id %>>
   <%= advantage.title %>
 <div class="option pull-right"">
-  <%= link_to '<i class="icon-remove"></i>'.html_safe, user_idea_advantage_path(current_user,@idea,advantage),method: :delete,confirm:"are you sure?" %>
+  <a href='#' rel='tooltip' title='Delete item' class='remove-item'><i class='icon-remove'></i></a>
 </div>
 </li>
