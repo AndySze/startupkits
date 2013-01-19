@@ -17,6 +17,7 @@ jQuery ($) ->
 
   $('td.area').on 'click', insertInput
 
+
   $('div.items').on
   'click': (e) ->
     e.stopPropagation()

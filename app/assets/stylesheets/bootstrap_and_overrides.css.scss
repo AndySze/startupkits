@@ -48,6 +48,7 @@
   ol {
     //list-style-type:none;
     //margin:0 0 10px 0;
+    position: relative;
     li {
       padding:0 10px;
       position: relative;
@@ -68,108 +69,108 @@
 #customer_segments {
   background-color:hsl(342,92,94);
   li{
-    background-color:hsl(342,92,94);
-    border:1px solid hsl(342,92,94);
+    background-color:hsla(342,92,94,0.5);
+    border:1px solid hsla(342,92,94,0.5);
   }
   li:hover {
-    background-color:hsl(342,92,84);
-    border:1px solid hsl(342,92,54);
+    background-color:hsla(342,92,84,0.5);
+    border:1px solid hsla(342,92,54,0.5);
   }
 }
 
 #problems {
   background-color:hsl(324,50,87);
   li{
-    background-color:hsl(324,50,87);
-    border:1px solid hsl(324,50,87);
+    background-color:hsla(324,50,87,0.5);
+    border:1px solid hsla(324,50,87,0.5);
   }
   li:hover {
-    background-color:hsl(324,50,77);
-    border:1px solid hsl(324,50,47);
+    background-color:hsla(324,50,77,0.5);
+    border:1px solid hsla(324,50,47,0.5);
   }
 }
 
 #solutions {
   background-color:hsl(72,68,75);
   li{
-    background-color:hsl(72,68,75);
-    border:1px solid hsl(72,68,75);
+    background-color:hsla(72,68,75,0.5);
+    border:1px solid hsla(72,68,75,0.5);
   }
   li:hover {
-    background-color:hsl(72,68,65);
-    border:1px solid hsl(72,68,35);
+    background-color:hsla(72,68,65,0.5);
+    border:1px solid hsla(72,68,35,0.5);
   }
 }
 
 #metrics {
   background-color:hsl(49,94,94);
   li{
-    background-color:hsl(49,94,94);
-    border:1px solid hsl(49,94,94);
+    background-color:hsla(49,94,94,0.5);
+    border:1px solid hsla(49,94,94,0.5);
   }
   li:hover {
-    background-color:hsl(49,94,84);
-    border:1px solid hsl(49,94,54);
+    background-color:hsla(49,94,84,0.5);
+    border:1px solid hsla(49,94,54,0.5);
   }
 }
 
 #uvps {
   background-color:hsl(27,94,87);
   li{
-    background-color:hsl(27,94,87);
-    border:1px solid hsl(27,94,87);
+    background-color:hsla(27,94,87,0.5);
+    border:1px solid hsla(27,94,87,0.5);
   }
   li:hover {
-    background-color:hsl(27,94,77);
-    border:1px solid hsl(27,94,47);
+    background-color:hsla(27,94,77,0.5);
+    border:1px solid hsla(27,94,47,0.5);
   }
 }
 
 #advantages {
   background-color:hsl(201,50,81);
   li{
-    background-color:hsl(201,50,81);
-    border:1px solid hsl(201,50,81);
+    background-color:hsla(201,50,81,0.5);
+    border:1px solid hsla(201,50,81,0.5);
   }
   li:hover {
-    background-color:hsl(201,50,71);
-    border:1px solid hsl(201,50,41);
+    background-color:hsla(201,50,71,0.5);
+    border:1px solid hsla(201,50,41,0.5);
   }
 }
 
 #channels {
   background-color:hsl(174,55,79);
   li{
-    background-color:hsl(174,55,79);
-    border:1px solid hsl(174,55,79);
+    background-color:hsla(174,55,79,0.5);
+    border:1px solid hsla(174,55,79,0.5);
   }
   li:hover {
-    background-color:hsl(174,55,69);
-    border:1px solid hsl(174,55,39);
+    background-color:hsla(174,55,69,0.5);
+    border:1px solid hsla(174,55,39,0.5);
   }
 }
 
 #structures {
   background-color:hsl(334,80,79);
   li{
-    background-color:hsl(334,80,79);
-    border:1px solid hsl(334,80,79);
+    background-color:hsla(334,80,79,0.5);
+    border:1px solid hsla(334,80,79,0.5);
   }
   li:hover {
-    background-color:hsl(334,80,69);
-    border:1px solid hsl(334,80,39);
+    background-color:hsla(334,80,69,0.5);
+    border:1px solid hsla(334,80,39,0.5);
   }
 }
 
 #revenues {
   background-color:hsl(134,55,79);
   li{
-    background-color:hsl(134,55,79);
-    border:1px solid hsl(134,55,79);
+    background-color:hsla(134,55,79,0.5);
+    border:1px solid hsla(134,55,79,0.5);
   }
   li:hover {
-    background-color:hsl(134,55,69);
-    border:1px solid hsl(134,55,39);
+    background-color:hsla(134,55,69,0.5);
+    border:1px solid hsla(134,55,39,0.5);
   }
 }
 
@@ -183,4 +184,32 @@
   height: 200px;
   width: 200px;
   padding: 6px;
+}
+
+.order {
+  display: block;
+  min-height: 50px;
+  font-size: 500%;
+  color: hsla(0,0,40,0.5);
+  text-align: center;
+  position: absolute;
+  margin-left: 7%;
+  margin-top: 50px;
+}
+
+.item-insert {
+  position: relative;
+  z-index: 3;
+}
+
+@media print {
+  .order{
+    display: none;
+  }
+  header {
+    display: none;
+  }
+  .idea-control {
+    display: none;
+  }
 }
