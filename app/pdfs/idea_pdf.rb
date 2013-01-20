@@ -21,15 +21,15 @@ class IdeaPdf < Prawn::Document
   def ideaCanvas
     move_down 20
 
-    metrics = @idea.metrics.map {|m| m.title }.collect {|m| "·" + m }.join("\n")
-    solutions = @idea.solutions.map {|s| s.feature }.collect {|m| "·" + m }.join("\n")
-    uvps = @idea.uvps.map {|u| u.title }.collect {|m| "·" + m }.join("\n")
-    advantages = @idea.advantages.map {|a| a.title }.collect {|m| "·" + m }.join("\n")
-    segments = @idea.customer_segments.map {|c| c.title }.collect {|m| "·" + m }.join("\n")
-    channels = @idea.channels.map {|ch| ch.title }.collect {|m| "·" + m }.join("\n")
-    structure = @idea.structure.map {|st| st.title }.collect {|m| "·" + m }.join("\n")
-    revenue = @idea.revenue.map {|r| r.title }.collect {|m| "·" + m }.join("\n")
-    problems = @idea.problems.map {|p| p.title }.collect {|m| "·" + m }.join("\n")
+    metrics = @idea.metrics.map {|m| "·" + m.title }.join("\n")
+    solutions = @idea.solutions.map {|s| "·" + s.feature }.join("\n")
+    uvps = @idea.uvps.map {|u| "·" + u.title }.join("\n")
+    advantages = @idea.advantages.map {|a| "·" + a.title }.join("\n")
+    segments = @idea.customer_segments.map {|c| "·" + c.title }.join("\n")
+    channels = @idea.channels.map {|ch| "·" + ch.title }.join("\n")
+    structure = @idea.structure.map {|st| "·" + st.title }.join("\n")
+    revenue = @idea.revenue.map {|r| "·" + r.title }.join("\n")
+    problems = @idea.problems.map {|p| "·" + p.title }.join("\n")
 
     tabledata = [
       [{:content => "<font size='15'>Problem</font>\n\n" + problems, :colspan => 2, :rowspan => 2},
