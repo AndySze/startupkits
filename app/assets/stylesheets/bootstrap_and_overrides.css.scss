@@ -54,6 +54,7 @@
       position: relative;
       .pull-right {
          position:absolute;
+         z-index: 2;
          top:1px;
          right:2px;
          display: none;
@@ -203,6 +204,19 @@
 }
 
 @media print {
+  html,body,#ideacanvas {
+    width: 100%;
+  }
+
+  #ideacanvas {
+    border: 3px solid black;
+    width: 100%;
+  }
+
+  #ideacanvas td {
+    height: 170px;
+  }
+  @page {size: landscape}
   .order{
     display: none;
   }
@@ -211,5 +225,8 @@
   }
   .idea-control {
     display: none;
+  }
+  li {
+    border:0px ;
   }
 }

@@ -28,6 +28,12 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @idea }
+      format.pdf do
+        pdf = IdeaPdf.new(@idea)
+        send_data pdf.render,filename: @idea.title,
+                             type: "application/pdf",
+                             disposition: "inline"
+      end
     end
   end
 
