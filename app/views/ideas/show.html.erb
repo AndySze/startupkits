@@ -2,10 +2,12 @@
   <h1> <%= @idea.title %> </h1>
 
   <div class="idea-control pull-right">
-    <%= link_to 'PDF version', user_idea_path(current_user,@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
-    <%= link_to 'Edit idea', edit_user_idea_path(current_user,@idea) %> |
-    <%= link_to 'Destory this idea', [current_user,@idea],method: :delete,confirm: "Are you sure?" %> |
-    <%= link_to 'Back to all ideas', user_ideas_path(current_user) %>
+    <%= link_to 'PDF version', user_idea_path(@user,@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
+    <%- if @user == current_user %>
+      <%= link_to 'Edit idea', edit_user_idea_path(@user,@idea) %> |
+      <%= link_to 'Destory this idea', [@user,@idea],method: :delete,confirm: "Are you sure?" %> |
+    <% end %>
+    <%= link_to 'Back to all ideas', user_ideas_path(@user) %>
   </div>
 
   <hr>
