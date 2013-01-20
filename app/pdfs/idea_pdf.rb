@@ -12,14 +12,19 @@ class IdeaPdf < Prawn::Document
 
     title
     ideaCanvas
+    info
   end
 
   def title
     text "#{@idea.title}",size: 30, style: :bold
   end
 
-  def ideaCanvas
+  def info
     move_down 20
+    text "Created at: http://startup.taolinggan.com/",size: 10, :color => "b0b0b0"
+  end
+
+  def ideaCanvas
 
     metrics = @idea.metrics.map {|m| "·" + m.title }.join("\n")
     solutions = @idea.solutions.map {|s| "·" + s.feature }.join("\n")
@@ -45,7 +50,7 @@ class IdeaPdf < Prawn::Document
        {:content => "<font size='15'>Revenue Streams</font>\n\n" + revenue, :colspan => 5}],
     ]
 
-    table(tabledata, :width => 700,:cell_style => {:width => 120,:font =>"Kai", :inline_format => true} )
+    table(tabledata, :width => 700, :cell_style => {:width => 120,:font =>"Kai", :inline_format => true} )
   end
 end
 
