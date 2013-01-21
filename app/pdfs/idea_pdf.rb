@@ -10,13 +10,12 @@ class IdeaPdf < Prawn::Document
       :normal => { :file => file, :font => "Kai" }
     }
 
-    title
+    font(file, :size => 30,style: :bold) do
+      text "#{@idea.title}"
+    end
+
     ideaCanvas
     info
-  end
-
-  def title
-    text "#{@idea.title}",size: 30, style: :bold
   end
 
   def info

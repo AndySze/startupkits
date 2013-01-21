@@ -3,7 +3,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = current_user.ideas
+    @user = User.find(params[:user_id])
+    @ideas = @user.ideas
 
     respond_to do |format|
       format.html # index.html.erb

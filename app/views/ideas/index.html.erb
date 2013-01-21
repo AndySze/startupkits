@@ -3,4 +3,4 @@
 <%= link_to 'New Idea', new_user_idea_path(current_user), class:"btn btn-success " %>
 <br />
 <br />
-<%= render (@ideas || "Haven't created any ideas yet.") %>
+<%= render @ideas %>
