@@ -5,12 +5,16 @@ class IdeaPdf < Prawn::Document
     @idea = idea
     #font "Helvetica Neue", "Helvetica", "Arial", "sans-serif"
 
-    file = "#{Prawn::DATADIR}/fonts/gkai00mp.ttf"
+    kai = "#{Prawn::DATADIR}/fonts/gkai00mp.ttf"
+    simhei = "#{Prawn::DATADIR}/fonts/SimHei.ttf"
     font_families["Kai"] = {
-      :normal => { :file => file, :font => "Kai" }
+      :normal => { :file => kai, :font => "Kai" }
+    }
+    font_families["SimHei"] = {
+      :normal => { :file => simhei, :font => "SimHei" }
     }
 
-    font(file, :size => 30,style: :bold) do
+    font(simhei, :size => 30,style: :bold) do
       text "#{@idea.title}"
     end
 
@@ -24,6 +28,7 @@ class IdeaPdf < Prawn::Document
   end
 
   def ideaCanvas
+    move_down 15
 
     metrics = @idea.metrics.map {|m| "·" + m.title }.join("\n")
     solutions = @idea.solutions.map {|s| "·" + s.feature }.join("\n")
