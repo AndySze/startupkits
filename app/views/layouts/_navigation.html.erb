@@ -1,29 +1,34 @@
 <%= link_to "Startupkit", root_path, :class => 'brand' %>
 <ul class="nav">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
+  <%- if current_user %>
+  <li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    <%= current_user.name %>
+    <b class="caret"></b>
+  </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>
+          <%= link_to 'Edit account', edit_user_registration_path %>
+        </li>
+        <% if current_user.has_role? :admin %>
+          <li>
+            <%= link_to 'Admin', users_path %>
+          </li>
+        <% end %>
+        <li>
+        <%= link_to "My ideas", current_user %>
+        </li>
+        <li>
+      <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
       </li>
-    <% end %>
-      <li>
-      <%= link_to "#{current_user.name}", current_user %>
-      </li>
-  <% else %>
-    <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </li>
-  <% end %>
+    </ul>
+  </li>
+<% else %>
+  <li>
+    <%= link_to "Sign Up",new_user_registration_path %>
+  </li>
+  <li>
+    <%= link_to "Login",new_user_session_path %>
+  </li>
+<% end %>
 </ul>

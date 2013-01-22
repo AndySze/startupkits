@@ -31,5 +31,8 @@
         </div>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
+    <%- if Rails.env.production? %>
+      <%= render "shared/ga" %>
+    <% end %>
   </body>
 </html>

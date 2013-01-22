@@ -231,21 +231,37 @@
   }
 }
 
-.masthead {
-background: url(http://taolinggan-files.stor.sinaapp.com/original/ca6041c43db94c51190b54b381144f34.png) center -10px no-repeat;
-padding: 100px 0 80px;
+.landing {
+padding: 20px 0 0;
 margin-bottom: 0;
-color: hsla(220,100,40,0.6);
+color: hsl(220,100,40);
 text-align: center;
 h1 {
-font-size: 120px;
+font-size: 80px;
 line-height: 1;
 letter-spacing: -2px;
 }
 p {
 margin-top: 20px;
-font-size: 50px;
+font-size: 40px;
 font-weight: 200;
 line-height: 1.25;
 }
+}
+
+.call-to-action {
+  width: 90%;
+}
+
+.landing-img {
+  width: 100%;
+  margin: auto;
+  img {
+    width: 863px;
+    margin-top: 20px;
+  }
+}
+
+.article {
+  width: 80%;
 }

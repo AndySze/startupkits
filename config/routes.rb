@@ -7,6 +7,7 @@ Startupkit::Application.routes.draw do
   end
 
   root :to => "home#index"
+  get "about-startup-toolkits" => "home#about"
 
   devise_for :users
   resources :users do
