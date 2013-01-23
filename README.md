@@ -34,6 +34,10 @@ cp config/unicorn.rb.example config/unicorn.rb
 cp config/nginx.conf.example config/nginx.conf
 vim config/nginx.conf #需要配置网址
 ln -nfs $(pwd)/config/nginx.conf /etc/nginx/sites-enabled/startupkits
+mkdir -p tmp/pids
+touch tmp/pids/unicorn.pid
+rake assets:precompile
+sudo nginx -s reload #可能需要重启
 unicorn -c config/unicorn.rb -E production -D
 ```
 4、访问你的网址。
