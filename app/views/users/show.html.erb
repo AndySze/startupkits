@@ -11,6 +11,7 @@
   <% end %>
 </div>
 
+<%- if false %>
 <div class="items clearfix">
   <%= link_to user_projects_path(current_user) do %>
     <h3>Projects</h3>
@@ -22,3 +23,4 @@
     <%= render @projects %>
   <% end %>
 </div>
+<% end %>

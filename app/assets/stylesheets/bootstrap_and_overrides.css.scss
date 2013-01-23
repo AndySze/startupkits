@@ -264,4 +264,11 @@ line-height: 1.25;
 
 .article {
   width: 80%;
+  .article-action{
+    margin-top: 20px;
+    border: 1px solid hsl(30,50,50);
+    background-color: hsl(30,50,80);
+    text-align: center;
+    padding-bottom: 20px;
+  }
 }
