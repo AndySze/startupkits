@@ -20,6 +20,9 @@ db/*.sqlite3
 /log/*
 /tmp/*
 
+# assets
+/public/assets
+
 # various artifacts
 **.war
 *.rbc

@@ -3,7 +3,7 @@ upstream unicorn-startup {
 }
 
 server {
-  listen 80 default;
+  listen 80 ;
   server_name  startup.example.com;
   root /home/andy/startupkits/public;
   #root /vagrant
