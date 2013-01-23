@@ -25,6 +25,7 @@ rails s
 ```
 cp config/database.yml.example config/database.yml
 vim database.yml #编辑为自己数据配置
+RAILS_ENV=production rake db:create
 RAILS_ENV=production rake db:migrate
 ```
 3、配置nginx和unicorn，运行
