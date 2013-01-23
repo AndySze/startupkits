@@ -24,3 +24,7 @@ gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 
 gem 'prawn', git: 'git://github.com/prawnpdf/prawn', branch: 'master' 
+
+group :production do
+  gem 'mysql2'
+end
