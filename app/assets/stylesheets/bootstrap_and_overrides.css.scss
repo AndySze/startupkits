@@ -52,6 +52,7 @@
     li {
       padding:0 10px;
       position: relative;
+      margin-bottom: 5px;
       .pull-right {
          position:absolute;
          z-index: 2;
@@ -68,7 +69,6 @@
 }
 
 #customer_segments {
-  background-color:hsl(342,92,94);
   li{
     background-color:hsla(342,92,94,0.5);
     border:1px solid hsla(342,92,94,0.5);
@@ -80,7 +80,6 @@
 }
 
 #problems {
-  background-color:hsl(324,50,87);
   li{
     background-color:hsla(324,50,87,0.5);
     border:1px solid hsla(324,50,87,0.5);
@@ -92,7 +91,6 @@
 }
 
 #solutions {
-  background-color:hsl(72,68,75);
   li{
     background-color:hsla(72,68,75,0.5);
     border:1px solid hsla(72,68,75,0.5);
@@ -104,19 +102,17 @@
 }
 
 #metrics {
-  background-color:hsl(49,94,94);
   li{
-    background-color:hsla(49,94,94,0.5);
-    border:1px solid hsla(49,94,94,0.5);
+    background-color:hsla(49,94,84,0.5);
+    border:1px solid hsla(49,94,84,0.5);
   }
   li:hover {
-    background-color:hsla(49,94,84,0.5);
-    border:1px solid hsla(49,94,54,0.5);
+    background-color:hsla(49,94,74,0.5);
+    border:1px solid hsla(49,94,74,0.5);
   }
 }
 
 #uvps {
-  background-color:hsl(27,94,87);
   li{
     background-color:hsla(27,94,87,0.5);
     border:1px solid hsla(27,94,87,0.5);
@@ -128,7 +124,6 @@
 }
 
 #advantages {
-  background-color:hsl(201,50,81);
   li{
     background-color:hsla(201,50,81,0.5);
     border:1px solid hsla(201,50,81,0.5);
@@ -140,7 +135,6 @@
 }
 
 #channels {
-  background-color:hsl(174,55,79);
   li{
     background-color:hsla(174,55,79,0.5);
     border:1px solid hsla(174,55,79,0.5);
@@ -152,7 +146,6 @@
 }
 
 #structures {
-  background-color:hsl(334,80,79);
   li{
     background-color:hsla(334,80,79,0.5);
     border:1px solid hsla(334,80,79,0.5);
@@ -164,7 +157,6 @@
 }
 
 #revenues {
-  background-color:hsl(134,55,79);
   li{
     background-color:hsla(134,55,79,0.5);
     border:1px solid hsla(134,55,79,0.5);
@@ -191,7 +183,7 @@
   display: block;
   min-height: 50px;
   font-size: 500%;
-  color: hsla(0,0,40,0.5);
+  color: hsla(0,0,95,0.5);
   text-align: center;
   position: absolute;
   margin-left: 7%;
