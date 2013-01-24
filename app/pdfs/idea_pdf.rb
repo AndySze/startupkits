@@ -14,7 +14,7 @@ class IdeaPdf < Prawn::Document
       :normal => { :file => simhei, :font => "SimHei" }
     }
 
-    font(simhei, :size => 30,style: :bold) do
+    font(kai, :size => 30,style: :bold) do
       text "#{@idea.title}"
     end
 
