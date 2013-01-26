@@ -14,6 +14,7 @@ bundle install
 
 2、创建数据库 && 运行：
 ```
+cp config/database.yml.example config/database.yml
 rake db:migrate
 rails s
 ```
