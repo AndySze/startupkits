@@ -7,7 +7,7 @@
       <%= link_to '编辑想法', edit_user_idea_path(@user,@idea) %> |
       <%= link_to '删除此想法', [@user,@idea],method: :delete,confirm: "Are you sure?" %> |
     <% end %>
-    <%= link_to '返回所有想法', user_ideas_path(@user) %>
+    <%= link_to '返回所有想法', user_path(@user) %>
   </div>
 
   <hr>
