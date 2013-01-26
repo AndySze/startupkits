@@ -1,12 +1,12 @@
 <%- @canonical_link = new_user_registration_url %>
-<h2>Sign up</h2>
+<h2><%= t("users.sign_up") %></h2>
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
   <%= f.error_notification %>
   <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %>
+  <%= f.input :name, :autofocus => true, :required => true %>
   <%= f.input :email, :required => true %>
   <%= f.input :password, :required => true %>
   <%= f.input :password_confirmation, :required => true %>
-  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+  <%= f.button :submit, t('users.sign_up'), :class => 'btn-primary' %>
 <% end %>
 <%= render "devise/shared/links" %>

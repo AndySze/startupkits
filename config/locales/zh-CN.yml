@@ -197,3 +197,24 @@ zh-CN:
   activerecord:
     errors:
       <<: *errors
+    models:
+      user: "用户"
+      idea: "创业想法"
+      project: "项目"
+      problem: "问题"
+      customer_segment: "客户细分"
+      uvp: "独特的价值主张"
+      solution: "解决方案"
+      channel: "渠道"
+      revenue: "收入来源"
+      structure: "资金花费"
+      advantage: "竞争优势"
+      metric: "关键指标"
+    attributes:
+      user:
+        name: "用户名"
+        login: "用户名"
+        email: "Email"
+        password: "密码"
+        password_confirmation: "确认密码"
+        remember_me: "记住我"

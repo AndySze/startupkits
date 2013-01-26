@@ -25,10 +25,10 @@
   </li>
 <% else %>
   <li>
-  <%= link_to "Sign Up",new_user_registration_path(:frm => "nav") %>
+  <%= link_to t("users.sign_up"),new_user_registration_path(:frm => "nav") %>
   </li>
   <li>
-    <%= link_to "Login",new_user_session_path %>
+    <%= link_to t("users.sign_in"),new_user_session_path %>
   </li>
 <% end %>
   <li>

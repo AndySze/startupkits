@@ -2,12 +2,12 @@
   <h1> <%= @idea.title %> </h1>
 
   <div class="idea-control pull-right">
-    <%= link_to 'PDF version', user_idea_path(@user,@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
+    <%= link_to '下载PDF版本', user_idea_path(@user,@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
     <%- if @user == current_user %>
-      <%= link_to 'Edit idea', edit_user_idea_path(@user,@idea) %> |
-      <%= link_to 'Destory this idea', [@user,@idea],method: :delete,confirm: "Are you sure?" %> |
+      <%= link_to '编辑想法', edit_user_idea_path(@user,@idea) %> |
+      <%= link_to '删除此想法', [@user,@idea],method: :delete,confirm: "Are you sure?" %> |
     <% end %>
-    <%= link_to 'Back to all ideas', user_ideas_path(@user) %>
+    <%= link_to '返回所有想法', user_ideas_path(@user) %>
   </div>
 
   <hr>
@@ -16,8 +16,8 @@
       <table id="ideacanvas" border="1">
         <tr>
           <td class="area" id="problems" colspan="2" rowspan="2">
-            <h4>Problem</h4>
-            <p class="description">列出你的最重要的三个客户细分。</p>
+            <h4><%= t("activerecord.models.problem") %></h4>
+            <p class="description">列出你的客户所遇到的最主要的问题。</p>
             <div class="items" id="three">
             <div class="order">
               <span>2</span>
@@ -30,7 +30,7 @@
             </div>
           </td>
           <td class="area" id="solutions" colspan="2">
-            <h4>Solution</h4>
+            <h4><%= t("activerecord.models.solution") %></h4>
             <p class="description">针对目标客户的问题的解决方案和产品是什么？</p>
             <div class="items" id="three">
               <div class="order">
@@ -44,7 +44,7 @@
         </div>
           </td>
           <td  class="area" id="uvps" colspan="2" rowspan="2">
-            <h4>Unique Value Proposition</h4>
+            <h4><%= t("activerecord.models.uvp") %></h4>
             <p class="description">你的产品能够提供给客户什么独特的价值？</p>
             <div class="items">
               <div class="order">
@@ -58,7 +58,7 @@
             </div>
           </td>
           <td  class="area" id="advantages" colspan="2">
-            <h4>Unfair Advantage</h4>
+            <h4><%= t("activerecord.models.advantage") %></h4>
             <p class="description">别人不可以迅速复制、用钱买来的竞争优势是什么？</p>
             <div class="items">
               <div class="order">
@@ -72,7 +72,7 @@
         </div>
           </td>
           <td  class="area" id="customer_segments" colspan="2" rowspan="2">
-            <h4>Customer Segments</h4>
+            <h4><%= t("activerecord.models.customer_segment") %></h4>
             <p class="description">列出你的最重要的三个客户细分。</p>
             <div class="items" id="three">
               <div class="order">
@@ -88,7 +88,7 @@
         </tr>
         <tr>
           <td  class="area" id="metrics" colspan="2">
-            <h4>Key Metrics</h4>
+            <h4><%= t("activerecord.models.metric") %></h4>
             <p class="description">如何衡量自己的产品是否步入正轨？</p>
             <div class="items">
               <div class="order">
@@ -102,7 +102,7 @@
         </div>
           </td>
           <td  class="area" id="channels" colspan="2">
-            <h4>Channels</h4>
+            <h4><%= t("activerecord.models.channel") %></h4>
             <p class="description">你可以通过什么样的渠道找到你的潜在客户？</p>
             <div class="items">
               <div class="order">
@@ -118,7 +118,7 @@
         </tr>
         <tr>
           <td  class="area" id="structures" colspan="5">
-            <h4>Cost Structure</h4>
+            <h4><%= t("activerecord.models.structure") %></h4>
             <p class="description">实现你的解决方案需要那些花费？</p>
             <div class="items" id="three">
               <div class="order">
@@ -132,7 +132,7 @@
           </div>
           </td>
           <td  class="area" id="revenues" colspan="5">
-            <h4>Revenue Streams</h4>
+            <h4><%= t("activerecord.models.revenue") %></h4>
             <p class="description">你的收入来源是哪些？</p>
             <div class="items" id="three">
               <div class="order">

@@ -1,8 +1,6 @@
 
 <div class="items clearfix">
-  <%= link_to user_ideas_path(current_user) do %>
-    <h3>Ideas</h3>
-  <% end %>
+  <h3><%= t("activerecord.models.idea") %></h3>
   <%= link_to "New Idea",new_user_idea_path(current_user), class:"btn btn-success " %>
   <br />
   <br />

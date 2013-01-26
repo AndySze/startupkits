@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
+  validates :name, :presence => true
+
   has_many :projects, :dependent => :destroy
   has_many :ideas, :dependent => :destroy
   has_many :customer_segments,:through => :ideas, :dependent => :destroy
