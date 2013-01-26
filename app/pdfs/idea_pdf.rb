@@ -41,17 +41,17 @@ class IdeaPdf < Prawn::Document
     problems = @idea.problems.map {|p| "·" + p.title }.join("\n")
 
     tabledata = [
-      [{:content => "<font size='15'>Problem</font>\n\n" + problems, :colspan => 2, :rowspan => 2},
-       {:content => "<font size='15'>Solution</font>\n\n" + solutions, :colspan => 2},
-       {:content => "<font size='15'>Unique Value Proposition</font>\n\n" + uvps, :colspan => 2, :rowspan => 2},
-       {:content => "<font size='15'>Unfair Advantage</font>\n\n" + advantages, :colspan =>2},
-       {:content => "<font size='15'>Customer Segments</font>\n\n" + segments, :colspan => 2,:rowspan => 2}],
+      [{:content => "<font size='15'>#{I18n.t("activerecord.models.problem")}</font>\n\n" + problems, :colspan => 2, :rowspan => 2},
+       {:content => "<font size='15'>#{I18n.t("activerecord.models.solution")}</font>\n\n" + solutions, :colspan => 2},
+       {:content => "<font size='15'>#{I18n.t("activerecord.models.uvp")}</font>\n\n" + uvps, :colspan => 2, :rowspan => 2},
+       {:content => "<font size='15'>#{I18n.t("activerecord.models.advantage")}</font>\n\n" + advantages, :colspan =>2},
+       {:content => "<font size='15'>#{I18n.t("activerecord.models.customer_segment")}</font>\n\n" + segments, :colspan => 2,:rowspan => 2}],
 
-      [{:content => "<font size='15'>Key Metrics</font>\n\n"+ metrics, :colspan => 2},
-       {:content => "<font size='15'>Channels</font>\n\n" + channels,:colspan => 2}],
+      [{:content => "<font size='15'>#{I18n.t("activerecord.models.metric")}</font>\n\n"+ metrics, :colspan => 2},
+       {:content => "<font size='15'>#{I18n.t("activerecord.models.channel")}</font>\n\n" + channels,:colspan => 2}],
 
-      [{:content => "<font size='15'>Cost Structure</font>\n\n" + structure, :colspan => 5},
-       {:content => "<font size='15'>Revenue Streams</font>\n\n" + revenue, :colspan => 5}],
+      [{:content => "<font size='15'>#{I18n.t("activerecord.models.structure")}</font>\n\n" + structure, :colspan => 5},
+       {:content => "<font size='15'>#{I18n.t("activerecord.models.revenue")}</font>\n\n" + revenue, :colspan => 5}],
     ]
 
     table(tabledata, :width => 700, :cell_style => {:width => 120,:font =>"Kai", :inline_format => true} )
