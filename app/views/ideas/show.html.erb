@@ -1,21 +1,23 @@
+<%- tablecell_id = current_user ? "area":"false" %>
 <div class="items clearfix" >
   <h1> <%= @idea.title %> </h1>
-
-  <div class="idea-control pull-right">
+  <%- if signed_in? %>
+    <div class="input-append">
+    <input type="text" readonly="" onClick="this.select()" spellcheck="false" id="url-field" value="<%= i_url(@idea.key) %>">
+    <span class="add-on"><i class="icon-hand-left"></i>分享你的创业想法(只读)</span>
     <%= link_to '下载PDF版本', user_idea_path(@user,@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
     <%- if @user == current_user %>
-      <%= link_to '编辑想法', edit_user_idea_path(@user,@idea) %> |
-      <%= link_to '删除此想法', [@user,@idea],method: :delete,confirm: "Are you sure?" %> |
+      <%= link_to '编辑想法', edit_user_idea_path(@user,@idea),class:"add-on " %> |
+      <%= link_to '删除此想法', [@user,@idea],method: :delete,confirm: "Are you sure?",class:"add-on " %> |
     <% end %>
-    <%= link_to '返回所有想法', user_path(@user) %>
-  </div>
-
-  <hr>
+    <%= link_to '返回所有想法', user_path(@user),class:"add-on " %>
+    </div>
+  <% end %>
 
   <!-- Canvas -->
       <table id="ideacanvas" border="1">
         <tr>
-          <td class="area" id="problems" colspan="2" rowspan="2">
+          <td class="<%= tablecell_id %>" colspan="2" rowspan="2">
             <h4><%= t("activerecord.models.problem") %></h4>
             <p class="description">列出你的客户所遇到的最主要的问题。</p>
             <div class="items" id="three">
@@ -29,7 +31,7 @@
               <% end %>
             </div>
           </td>
-          <td class="area" id="solutions" colspan="2">
+          <td class="<%= tablecell_id %>" id="solutions" colspan="2">
             <h4><%= t("activerecord.models.solution") %></h4>
             <p class="description">针对目标客户的问题的解决方案和产品是什么？</p>
             <div class="items" id="three">
@@ -43,7 +45,7 @@
           <% end %>
         </div>
           </td>
-          <td  class="area" id="uvps" colspan="2" rowspan="2">
+          <td  class="<%= tablecell_id %>" id="uvps" colspan="2" rowspan="2">
             <h4><%= t("activerecord.models.uvp") %></h4>
             <p class="description">你的产品能够提供给客户什么独特的价值？</p>
             <div class="items">
@@ -57,7 +59,7 @@
               <% end %>
             </div>
           </td>
-          <td  class="area" id="advantages" colspan="2">
+          <td  class="<%= tablecell_id %>" id="advantages" colspan="2">
             <h4><%= t("activerecord.models.advantage") %></h4>
             <p class="description">别人不可以迅速复制、用钱买来的竞争优势是什么？</p>
             <div class="items">
@@ -71,7 +73,7 @@
           <% end %>
         </div>
           </td>
-          <td  class="area" id="customer_segments" colspan="2" rowspan="2">
+          <td  class="<%= tablecell_id %>" id="customer_segments" colspan="2" rowspan="2">
             <h4><%= t("activerecord.models.customer_segment") %></h4>
             <p class="description">列出你的最重要的三个客户细分。</p>
             <div class="items" id="three">
@@ -87,7 +89,7 @@
           </td>
         </tr>
         <tr>
-          <td  class="area" id="metrics" colspan="2">
+          <td  class="<%= tablecell_id %>" id="metrics" colspan="2">
             <h4><%= t("activerecord.models.metric") %></h4>
             <p class="description">如何衡量自己的产品是否步入正轨？</p>
             <div class="items">
@@ -101,7 +103,7 @@
           <% end %>
         </div>
           </td>
-          <td  class="area" id="channels" colspan="2">
+          <td  class="<%= tablecell_id %>" id="channels" colspan="2">
             <h4><%= t("activerecord.models.channel") %></h4>
             <p class="description">你可以通过什么样的渠道找到你的潜在客户？</p>
             <div class="items">
@@ -117,7 +119,7 @@
           </td>
         </tr>
         <tr>
-          <td  class="area" id="structures" colspan="5">
+          <td  class="<%= tablecell_id %>" id="structures" colspan="5">
             <h4><%= t("activerecord.models.structure") %></h4>
             <p class="description">实现你的解决方案需要那些花费？</p>
             <div class="items" id="three">
@@ -131,7 +133,7 @@
             <% end %>
           </div>
           </td>
-          <td  class="area" id="revenues" colspan="5">
+          <td  class="<%= tablecell_id %>" id="revenues" colspan="5">
             <h4><%= t("activerecord.models.revenue") %></h4>
             <p class="description">你的收入来源是哪些？</p>
             <div class="items" id="three">

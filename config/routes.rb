@@ -9,6 +9,8 @@ Startupkit::Application.routes.draw do
   root :to => "home#index"
   get "about-startup-toolkits" => "home#about"
 
+  get "i/:key" => "ideas#show",:as => :i
+
   devise_for :users
   resources :users do
     resources :projects

@@ -15,8 +15,12 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @user = User.find(params[:user_id])
-    @idea = @user.ideas.find(params[:id])
+    if params[:id]
+      @idea = Idea.find(params[:id])
+    elsif params[:key]
+      @idea = Idea.find_by_key(params[:key])
+    end
+    @user = @idea.user
     @customer_segments = @idea.customer_segments#list only three most important segments
     @problems = @idea.problems
     @solutions = @idea.solutions
