@@ -1,5 +1,5 @@
 <div class="fix-box">
-  <%= link_to [@user,idea],title:"#{idea.title}" do %>
+  <%= link_to idea,title:"#{idea.title}" do %>
     <h4><%= idea.title %></h4>
     <p><%= idea.customer_segments.count %> Customer Segments,
     <%= idea.problems.count %> Problems,
@@ -10,6 +10,13 @@
     <%= idea.channels.count %> Channels
     <%= idea.revenue.count %> Revenue,
     <%= idea.structure.count %> Structure</p>
+
   <% end %>
+  <ul class="ideausers inline">
+    <%- idea.users.each do |user| %>
+      <li class="user_list"><%= user.name %></li>
+    <% end %>
+    <li >
+  </ul>
 </div>
 

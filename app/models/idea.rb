@@ -13,8 +13,11 @@ class Idea < ActiveRecord::Base
   has_many :structure, :dependent=> :destroy
   has_many :revenue, :dependent=> :destroy
 
+  has_many :idea_management, :dependent => :destroy
+  has_many :users, :through => :idea_management
+
   def generate_key
-    self.key = Digest::MD5.hexdigest(self.id.to_s + Time.now.to_s)
+    self.key = Digest::MD5.hexdigest(self.id.to_s + Time.now.to_s) unless self.key
   end
 
 end

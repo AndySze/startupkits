@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126064326) do
+ActiveRecord::Schema.define(:version => 20130126110715) do
 
   create_table "advantages", :force => true do |t|
     t.string   "title"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(:version => 20130126064326) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "idea_managements", :force => true do |t|
+    t.integer  "idea_id"
+    t.integer  "user_id"
+    t.string   "user_type",  :limit => 10
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "idea_managements", ["idea_id"], :name => "index_idea_managements_on_idea_id"
+  add_index "idea_managements", ["user_id"], :name => "index_idea_managements_on_user_id"
 
   create_table "ideas", :force => true do |t|
     t.string   "title"

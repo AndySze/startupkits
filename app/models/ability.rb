@@ -13,8 +13,8 @@ class Ability
       end
 
       can :create, Idea
-      can [:read, :update, :destroy], Idea do |idea|
-        (idea.user_id == user.id)
+      can [:read, :update, :destroy, :add_user, :delete_user], Idea do |idea|
+        (idea.users.include?(user))
       end
 
       can :manage, User do |u|

@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
 
   has_many :projects, :dependent => :destroy
-  has_many :ideas, :dependent => :destroy
-  has_many :customer_segments,:through => :ideas, :dependent => :destroy
-  has_many :problems,:through => :ideas, :dependent => :destroy
+  has_many :idea_management, :dependent => :destroy
+  has_many :ideas, :through => :idea_management
 end

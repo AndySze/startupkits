@@ -1,18 +1,39 @@
-<%- tablecell_id = current_user ? "area":"false" %>
+<%- tablecell_id = @idea.users.include?(current_user) ? "area":"false" %>
 <div class="items clearfix" >
   <h1> <%= @idea.title %> </h1>
   <%- if signed_in? %>
     <div class="input-append">
     <input type="text" readonly="" onClick="this.select()" spellcheck="false" id="url-field" value="<%= i_url(@idea.key) %>">
     <span class="add-on"><i class="icon-hand-left"></i>分享你的创业想法(只读)</span>
-    <%= link_to '下载PDF版本', user_idea_path(@user,@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
+    <%= link_to '下载PDF版本', idea_path(@idea,format: "pdf"),class:"btn btn-primary", target: "_blank" %> |
     <%- if @user == current_user %>
-      <%= link_to '编辑想法', edit_user_idea_path(@user,@idea),class:"add-on " %> |
-      <%= link_to '删除此想法', [@user,@idea],method: :delete,confirm: "Are you sure?",class:"add-on " %> |
+      <%= link_to '编辑想法', edit_idea_path(@idea),class:"add-on " %> |
+      <%= link_to '删除此想法', @idea,method: :delete,confirm: "Are you sure?",class:"add-on " %> |
+      <%= link_to '返回所有想法', user_path(@user),class:"add-on " %>
     <% end %>
-    <%= link_to '返回所有想法', user_path(@user),class:"add-on " %>
     </div>
   <% end %>
+
+  <ul class="ideausers inline">
+    <li><b>用户成员：</b></li>
+    <%- @idea.users.each do |user| %>
+      <li class="user_list">
+        <%= form_tag({:controller => "ideas",:action => "delete_user"}, :method => "put",class: "form-inline") do %>
+          <%= user.name %>
+          <%= hidden_field_tag(:email,user.email) %>
+          <%= submit_tag("X",class:"btn btn-mini",title:"删除该成员") %>
+        <% end %>
+      </li>
+    <% end %>
+    <li >
+    <%= form_tag({:controller => "ideas",:action => "add_user"}, :method => "put",class: "form-inline") do %>
+      <%= label_tag(:email, "email:") %>
+      <%= text_field_tag(:email) %>
+      <%= submit_tag("add user",class:"btn btn-info") %>
+      <span class="help-inline">邮箱需要是已经注册过的</span>
+    <% end %>
+  </li>
+  </ul>
 
   <!-- Canvas -->
       <table id="ideacanvas" border="1">

@@ -44,7 +44,7 @@
 
 }
 
-.items {
+table#ideacanvas {
   ol {
     //list-style-type:none;
     //margin:0 0 10px 0;
@@ -300,4 +300,16 @@ footer {
   background-color: white;
   width: 400px;
   border-radius: 0px;
+}
+
+ul.ideausers {
+  border: 1px solid hsl(0,0,80);
+  padding: 5px;
+  li.user_list {
+    border: 1px solid hsl(60,30,60);
+    background-color: hsl(60,30,90);
+    form {
+      margin:0;
+    }
+  }
 }
